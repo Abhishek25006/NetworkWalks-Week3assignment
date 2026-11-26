@@ -1,4 +1,4 @@
-# PENETRATION TESTING REPORT
+# Penetration Testing Report
 ## Password Security Assessment & Password Cracking
 
 **W3-PM-FINAL | CYBERSECURITY | NETWORKWALKS**
@@ -15,7 +15,20 @@
 
 ---
 
-# 1. Liability Disclaimer
+## Table of Contents
+
+1. [Liability Disclaimer](#1-liability-disclaimer)
+2. [Introduction](#2-introduction)
+3. [Tools Used](#3-tools-used)
+4. [Activities Performed](#4-activities-performed)
+5. [Risk Analysis / Impact](#5-risk-analysis--impact)
+6. [Recommendations](#6-recommendations)
+7. [Conclusion](#7-conclusion)
+8. [Evidence Collected](#8-evidence-collected)
+
+---
+
+## 1. Liability Disclaimer
 
 All activities documented in this report were performed strictly for educational and cybersecurity research purposes within an authorized laboratory environment. The exercises involved password-protected files provided for practical testing.
 
@@ -23,15 +36,14 @@ These techniques should only be used on files, systems and accounts that you own
 
 ---
 
-# 2. Introduction
+## 2. Introduction
 
 This report documents the Week 3 password security practical conducted as part of the NetworkWalks Cybersecurity & Ethical Hacking Internship.
 
 The practical focused on understanding password security, extracting password hashes from protected PDF files, and performing password recovery using two different approaches.
 
-The first module, W3-PM1, involved using **John the Ripper (JTR)** in Kali Linux to analyze password-protected PDF files and perform dictionary-based password testing.
-
-The second module, W3-PM2, involved using the **NetworkWalks Password Cracker application** to perform password testing and understand the password recovery process through a graphical interface.
+- **W3-PM1** used **John the Ripper (JTR)** in Kali Linux to analyze password-protected PDF files and perform dictionary-based password testing.
+- **W3-PM2** used the **NetworkWalks Password Cracker application** to perform password testing and understand the password recovery process through a graphical interface.
 
 These activities helped me understand how weak passwords can be recovered using dictionary-based techniques, why password strength matters, and how password security can be assessed in a controlled environment.
 
@@ -39,7 +51,7 @@ The exercises were performed on designated practical files and were not intended
 
 ---
 
-# 3. Tools Used
+## 3. Tools Used
 
 | Tool | Purpose |
 |---|---|
@@ -53,110 +65,96 @@ The exercises were performed on designated practical files and were not intended
 
 ---
 
-# 4. Activities Performed
+## 4. Activities Performed
 
-## 4.1 W3-PM1: Password Cracking Using John the Ripper
-
-The first practical involved password security testing using John the Ripper on Kali Linux.
+### 4.1 W3-PM1: Password Cracking Using John the Ripper
 
 The objective was to understand how password-protected PDF files store password verification information and how password recovery tools test possible passwords against extracted hashes.
 
-### Step 1: Lab Setup
+#### Step 1: Lab Setup
 
-I prepared the Kali Linux environment and verified that the required password-testing tools were available.
-
-The password-protected PDF files provided for the practical were organized for testing.
+I prepared the Kali Linux environment and verified that the required password-testing tools were available. The password-protected PDF files provided for the practical were organized for testing.
 
 **Observation:** The testing environment was ready for hash extraction and password analysis.
 
-**Evidence:** Screenshot of the Kali Linux environment and the provided PDF files.
+#### Step 2: Password Hash Extraction
 
-### Step 2: Password Hash Extraction
-
-I used the appropriate PDF hash extraction utility to extract the password hash from the protected PDF file.
-
-The extracted hash was saved into a text file so that it could be used by John the Ripper.
+I used the appropriate PDF hash extraction utility to extract the password hash from the protected PDF file. The extracted hash was saved into a text file so that it could be used by John the Ripper.
 
 **Observation:** The password-protected PDF generated a hash representation that could be processed by a password auditing tool.
 
 **Security significance:** Password hashes allow security professionals to evaluate password strength without directly testing access to the original document.
 
-**Evidence:** Screenshot showing the extracted hash file.
+#### Step 3: Password Testing Using John the Ripper
 
-### Step 3: Password Testing Using John the Ripper
-
-I used John the Ripper to analyze the extracted PDF hash and perform dictionary-based password testing.
-
-The tool tested candidate passwords from a wordlist against the extracted hash. If a matching password was found, John the Ripper reported the recovered password.
+I used John the Ripper to analyze the extracted PDF hash and perform dictionary-based password testing. The tool tested candidate passwords from a wordlist against the extracted hash. If a matching password was found, John the Ripper reported the recovered password.
 
 **Observation:** The results depended on the password's complexity and whether a suitable candidate existed in the wordlist.
 
 **Security significance:** Weak or commonly used passwords may be recovered relatively quickly, while stronger passwords can make password recovery significantly more difficult.
 
-**Evidence:** Screenshot of the John the Ripper testing process.
+**Evidence:**
 
-### Step 4: Password Recovery Results
+![John the Ripper testing](jtr%20.png)
 
-After completing the testing process, I reviewed the results and recorded whether the password was recovered.
+#### Step 4: Password Recovery Results
 
-The results were documented separately for each provided PDF file.
+After completing the testing process, I reviewed the results and recorded whether the password was recovered. The results were documented separately for each provided PDF file.
 
-**Evidence:** Screenshot showing the final result from John the Ripper.
+**Evidence:**
+
+![Password reveal using JTR](passwordreveal%20using%20jtr.png)
 
 ---
 
-## 4.2 W3-PM2: Password Cracking Using NetworkWalks Application
+### 4.2 W3-PM2: Password Cracking Using NetworkWalks Application
 
-The second practical involved using the NetworkWalks security application to understand password testing and recovery through a graphical interface.
+The second practical involved using the NetworkWalks security application to understand password testing and recovery through a graphical interface. The purpose was to perform the assigned password-security exercise using the application and compare the process with the command-line approach used in John the Ripper.
 
-The purpose of this module was to perform the assigned password-security exercise using the application and compare the process with the command-line approach used in John the Ripper.
-
-### Step 1: Launching the NetworkWalks Application
+#### Step 1: Launching the NetworkWalks Application
 
 I opened the NetworkWalks application and navigated to the password-cracking module.
 
-The application provided an interface for performing the assigned password testing exercise.
-
 **Observation:** The application provided a graphical environment for the password security practical.
 
-**Evidence:** Screenshot of the NetworkWalks application interface.
+**Evidence:**
 
-### Step 2: Selecting the Lab File
+![NetworkWalks application](networkwalksapp.png)
+
+#### Step 2: Selecting the Lab File
 
 I selected the password-protected file provided for the practical and prepared it for password testing using the application.
 
 **Observation:** The selected file was loaded into the password testing workflow.
 
-**Evidence:** Screenshot showing the selected file within the application.
+#### Step 3: Performing Password Testing
 
-### Step 3: Performing Password Testing
-
-I performed the password testing process using the options available in the NetworkWalks application.
-
-The application tested possible password combinations or dictionary entries and displayed the result of the process.
+I performed the password testing process using the options available in the NetworkWalks application. The application tested possible password combinations or dictionary entries and displayed the result of the process.
 
 **Observation:** The result depended on the password and the testing method used by the application.
 
-**Evidence:** Screenshot of the password testing process.
+**Evidence:**
 
-### Step 4: Reviewing the Results
+![NetworkWalks application workflow](networkwalkswebapp2.png)
 
-After the testing process completed, I reviewed the application output and recorded the result.
+#### Step 4: Reviewing the Results
 
-I compared the process with the command-line testing performed using John the Ripper.
+After the testing process completed, I reviewed the application output and recorded the result. I compared the process with the command-line testing performed using John the Ripper.
 
 **Observation:** Both methods demonstrated how password-testing tools can evaluate password strength and attempt to recover weak passwords.
 
-**Evidence:** Screenshot of the final result in the NetworkWalks application.
+**Evidence:**
+
+![Password reveal](passwordreveal.png)
 
 ---
 
-# 5. Risk Analysis / Impact
+## 5. Risk Analysis / Impact
 
 Based on the password security exercises, I identified the following potential security risks.
 
 | # | Risk / Finding | Observation | Potential Impact | Risk Level |
-|---|---|---|---|
+|---|---|---|---|---|
 | 1 | Weak passwords | Simple or commonly used passwords may be present in wordlists | Unauthorized access to protected files | High |
 | 2 | Dictionary-based password attacks | Passwords based on common words may be guessed | Loss of confidentiality | High |
 | 3 | Reused passwords | The same password may be used across multiple accounts or files | Multiple systems or files may become exposed | High |
@@ -166,88 +164,60 @@ Based on the password security exercises, I identified the following potential s
 
 **Risk level key:** Low / Medium / High / Critical
 
-The practical demonstrated password testing techniques in a controlled environment. Password recovery results do not necessarily indicate that all passwords or files are vulnerable.
-
-The security risk depends on password complexity, length, uniqueness, storage method, and the password protection mechanism being used.
+The practical demonstrated password testing techniques in a controlled environment. Password recovery results do not necessarily indicate that all passwords or files are vulnerable. The security risk depends on password complexity, length, uniqueness, storage method, and the password protection mechanism being used.
 
 ---
 
-# 6. Recommendations
+## 6. Recommendations
 
-Based on the password security practical, I recommend the following security measures:
-
-1. **Use strong and unique passwords**  
-   Passwords should be long, unpredictable and different for each account or protected file.
-
-2. **Avoid common passwords**  
-   Do not use frequently used passwords, names, birthdays, keyboard patterns or dictionary words.
-
-3. **Increase password length**  
-   Longer passwords or passphrases significantly improve resistance to password guessing.
-
-4. **Avoid password reuse**  
-   Using the same password across multiple accounts increases the impact of a password compromise.
-
-5. **Use a password manager**  
-   Password managers can help users securely generate and store unique passwords.
-
-6. **Protect sensitive PDF files**  
-   Sensitive documents should be protected with appropriate encryption and strong passwords.
-
-7. **Use multi-factor authentication**  
-   Enable MFA wherever available to add another layer of protection.
-
-8. **Conduct regular password audits**  
-   Organizations should periodically review their password security practices.
-
-9. **Improve security awareness**  
-   Users should be educated about password guessing, dictionary attacks and credential security.
-
-10. **Perform password testing only with authorization**  
-    Password auditing should only be conducted on files or systems where permission has been granted.
+1. **Use strong and unique passwords** – Passwords should be long, unpredictable and different for each account or protected file.
+2. **Avoid common passwords** – Do not use frequently used passwords, names, birthdays, keyboard patterns or dictionary words.
+3. **Increase password length** – Longer passwords or passphrases significantly improve resistance to password guessing.
+4. **Avoid password reuse** – Using the same password across multiple accounts increases the impact of a password compromise.
+5. **Use a password manager** – Password managers can help users securely generate and store unique passwords.
+6. **Protect sensitive PDF files** – Sensitive documents should be protected with appropriate encryption and strong passwords.
+7. **Use multi-factor authentication** – Enable MFA wherever available to add another layer of protection.
+8. **Conduct regular password audits** – Organizations should periodically review their password security practices.
+9. **Improve security awareness** – Users should be educated about password guessing, dictionary attacks and credential security.
+10. **Perform password testing only with authorization** – Password auditing should only be conducted on files or systems where permission has been granted.
 
 ---
 
-# 7. Conclusion
+## 7. Conclusion
 
 During Week 3 of my Cybersecurity & Ethical Hacking internship at NetworkWalks, I completed practical activities related to password security and password recovery.
 
-In W3-PM1, I used John the Ripper in Kali Linux to understand PDF password hash extraction and dictionary-based password testing.
+- In **W3-PM1**, I used John the Ripper in Kali Linux to understand PDF password hash extraction and dictionary-based password testing.
+- In **W3-PM2**, I used the NetworkWalks application to perform password testing through its graphical interface and understand the password recovery process.
 
-In W3-PM2, I used the NetworkWalks application to perform password testing through its graphical interface and understand the password recovery process.
-
-These exercises helped me understand how password hashes are used, how password testing tools work, and why weak passwords are vulnerable to dictionary-based attacks.
-
-I also learned the importance of password length, complexity, uniqueness and secure storage. The practical demonstrated that password security is an important part of cybersecurity and that weak passwords can create risks for individuals and organizations.
+These exercises helped me understand how password hashes are used, how password testing tools work, and why weak passwords are vulnerable to dictionary-based attacks. I also learned the importance of password length, complexity, uniqueness and secure storage. The practical demonstrated that password security is an important part of cybersecurity and that weak passwords can create risks for individuals and organizations.
 
 All activities were performed within an authorized educational laboratory environment.
 
---#8 Evidence collected-
+---
+
+## 8. Evidence Collected
 
 ### W3-PM1: Password Cracking Using John the Ripper (JTR)
 
-- **jtr.png** – Evidence of password cracking using John the Ripper.
+| File | Description |
+|---|---|
+| [jtr .png](jtr%20.png) | Evidence of password cracking using John the Ripper |
+| [passwordreveal using jtr.png](passwordreveal%20using%20jtr.png) | Password recovery result from John the Ripper |
 
 ### W3-PM2: Password Cracking Using NetworkWalks Application
 
-- **networkwalksapp.png** – NetworkWalks application interface.
-- **networkwalksapp2.png** – Additional screenshot of the NetworkWalks application and its workflow.
-- **passwordreveal.png** – Evidence of the password recovery result.
-- **passwordreveal2.png** – Additional evidence of the recovered password/result.
+| File | Description |
+|---|---|
+| [networkwalksapp.png](networkwalksapp.png) | NetworkWalks application interface |
+| [networkwalkswebapp2.png](networkwalkswebapp2.png) | Additional screenshot of the application and its workflow |
+| [passwordreveal.png](passwordreveal.png) | Evidence of the password recovery result |
 
 All screenshots are included as evidence of the practical activities performed during Week 3 of the NetworkWalks Cybersecurity Internship.
 
-## W3-PM2: NetworkWalks Application
-
-- Screenshot 1: NetworkWalks application opened
-- Screenshot 2: Password-cracking module
-- Screenshot 3: Lab file selected
-- Screenshot 4: Password testing process
-- Screenshot 5: Final result displayed by the application
-
 ---
 
-**Intern:** Abhishek Jain  
-**Program:** NetworkWalks Cybersecurity & Ethical Hacking Internship  
-**Practical:** Week 3, Password Security & Password Cracking  
+**Intern:** Abhishek Jain
+**Program:** NetworkWalks Cybersecurity & Ethical Hacking Internship
+**Practical:** Week 3, Password Security & Password Cracking
 **Modules:** W3-PM1 & W3-PM2
